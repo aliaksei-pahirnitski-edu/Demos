@@ -47,6 +47,17 @@ coconaApp
         => Console.WriteLine($"Copying from [{from}] to [{to}] with replace: {replace} and limit: {limit}"))
     .WithDescription("Demo mixing args and opts");
 
+
+// Add a command and use the context to cancel with Ctrl+C.
+coconaApp.AddCommand("long-running", async (CoconaAppContext ctx) =>
+{
+    Console.WriteLine($"Running... Press Ctrl-C to break...");
+    await Task.Delay(TimeSpan.FromSeconds(30), ctx.CancellationToken);
+    Console.WriteLine($"Done.");
+});
+
+
+
 // run: demo-nested --help
 // demo-nested say-hi Julia
 // demo-nested minus 8 3

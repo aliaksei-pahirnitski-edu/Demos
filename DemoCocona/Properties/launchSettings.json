@@ -2,7 +2,7 @@
   "profiles": {
     "DemoCocona": {
       "commandName": "Project",
-      "commandLineArgs": "demo-mix \"c:/temp\" \"d:/temp\" --limit 8"
+      "commandLineArgs": "long-running"
     }
   }
 }
